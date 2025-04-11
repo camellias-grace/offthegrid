@@ -3,7 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>Myths and Legends</title>
-	<link rel="stylesheet" href="./assets/styles.css">
+	<link rel="stylesheet" href="/assets/styles.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
 
 <style>
 	html{
@@ -20,10 +24,10 @@
 	}
 	.grid-container {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 2rem;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-		margin: 3% 4rem 0 4rem;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+		margin: 3% 3rem 0 3rem 0;
 	}
 	.last{
 		padding-bottom: 2rem;
@@ -35,7 +39,21 @@
 		transition-duration: 3s;
 	}
 
-	
+	.grid-container div:nth-child(1)  { color: rgb(0, 2, 94); }
+    .grid-container div:nth-child(2)  { color: rgb(0, 2, 144); }
+    .grid-container div:nth-child(3)  { color: rgb(0, 4, 215); }
+    .grid-container div:nth-child(4)  { color: rgb(18, 22, 252); }
+    .grid-container div:nth-child(5)  { color: rgb(56, 59, 255); }
+    .grid-container div:nth-child(6)  { color: rgb(88, 91, 255); }
+    .grid-container div:nth-child(7)  { color: rgb(88, 91, 255); }
+    .grid-container div:nth-child(8)  { color: rgb(126, 128, 255); }
+    .grid-container div:nth-child(9)  { color: rgb(154, 156, 250); }
+    .grid-container div:nth-child(10) { color: rgb(189, 190, 255); }
+    .grid-container div:nth-child(11) { color: rgb(210, 210, 255); }
+    .grid-container div:nth-child(12) { color: rgb(229, 229, 255); }
+    .grid-container div:nth-child(13) { color: rgb(238, 238, 253); }
+
+
 </style>
 
 
@@ -43,21 +61,67 @@
 </head>
 <body>
 
-	<!--<h1>Website Template</h1>
-	<p>Fork and use this template repo (a.k.a. "boilerplate") for any web project</p>
-	<img src="assets/img/cat.jpg" alt="" style="max-width: 32rem;"> -->
-
 	<div class="grid-container">
-		<div>A</div>
-		<div>radiant</div>
-		<div class="last">young</div>
-		<div>woman</div>
-		<div>to</div>
-		<div>light</div>
+		<div>a</div>
+		<div class="last">legend</div>
+		<div>and</div>
 		<div>the</div>
-		<div class="last">darkest</div>
-		<div>corners</div>
-		<div>of</div>
-		<div class="last">winter</div>
+		<div class="last">myth</div>
+		<div>to</div>
+		<div>be</div>
+		<div>seen</div>
+		<div>only</div>
+		<div>once</div>
+		<div>and</div>
+		<div>not</div>
+		<div>again</div>
 	</div>
+
+	
+
+	<script>
+		
+	function randomNumber(min, max){
+		return(Math.random() * (max - min)) + min;
+	}
+    
+    let divs = document.querySelectorAll(".grid-container div");
+
+
+
+	function randomize(){
+	divs.forEach(function (div) {
+		let scale = randomNumber(.5, 1.25);
+		let translateX = randomNumber(0,60);
+		let translateY = randomNumber(0,50);
+		let rotate = randomNumber(0, 360);
+		let opacity = randomNumber(0.25, 1);
+	
+
+	if (Math.random() > .5){
+		scale = 1;
+		translateX = randomNumber(0, 100);
+		translateY = randomNumber(0, 100);
+	}
+			
+	 div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
+	 div.style.opacity = opacity.toFixed(2);
+    //document.addEventListener("click", randomize);
+
+				let rotation = 0;
+			document.addEventListener("click", function (){
+				let min = 10;
+				let max = 40;
+				rotation += Math.random() * (max - min) + min;
+				document.body.style.transform = `rotate(${rotation}deg)`;
+			});
+		});
+
+	}
+	document.addEventListener("click", randomize);	
+		</script>
+
+
+
 </body>
+</html>
